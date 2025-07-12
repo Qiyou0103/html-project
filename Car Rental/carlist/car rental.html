@@ -3,152 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <title>Car Listings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: white;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* Show 5 cars per row */
+      gap: 20px;
+    }
+
+    .car-card {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .car-card:hover {
+      transform: scale(1.02);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .car-card b {
+      display: block;
+      margin: 5px 0;
+    }
+
+    .car-card small {
+      color: #aaa;
+    }
+
+    .icons {
+      font-size: 14px;
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+    .transmission {
+      color: #00d0ff;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #00ff9d;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .btn {
+      background-color: #f25454;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #ff6666;
+    }
+
+    @media (max-width: 1200px) {
+      .car-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .car-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .car-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
-  <table border="1" width="100%">
-    <tr>
-      <td align="left">
-        <img src="car1.jfif" width="150"><br>
-        <b>Proton Saga</b><br>
-        or similar Small<br>
-        👤2 💼2 🚘4-5<br>
-        <b>🔢M</b><br>
-        <b>RM 82 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car2.jfif" width="150"><br>
-        <b>Perodua Axia</b><br>
-        or similar Small<br>
-        👤4 💼2 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 81 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car3.jfif" width="150"><br>
-        <b>Class Intermediate Car</b><br>
-        or similar Medium<br>
-        👤5 💼3 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 140 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car4.jfif" width="150"><br>
-        <b>Honda Accord</b><br>
-        or similar Medium<br>
-        👤5 💼3 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 242 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car5.jfif" width="150"><br>
-        <b>Perodua Bezza</b><br>
-        or similar Large<br>
-        👤5 💼2 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 86 /day</b>
-        <button>View Deal</button>
-      </td>
-    </tr>
-    <tr>
-      <td align="left">
-        <img src="car6.jfif" width="150"><br>
-        <b>Proton Exora</b><br>
-        or similar Van<br>
-         👤5 💼3 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 180 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car7.jfif" width="150"><br>
-        <b>Class Full-size SUV</b><br>
-        or similar SUV<br>
-         👤5 💼2 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 309 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car8.jfif" width="150"><br>
-        <b>Mercedes-Benz C-Class</b><br>
-        or similar Large<br>
-        👤5 💼5 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 1,102 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car9.jfif" width="150"><br>
-        <b>Class Standard Van</b><br>
-        or similar Van<br>
-        👤5 💼3 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 180 /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car10.jfif" width="150"><br>
-        <b>Mercedes-Benz E-Class</b><br>
-        or similar Luxury<br>
-        👤5 💼5 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM 1,102 /day</b>
-        <button>View Deal</button>
-      </td>
-    </tr>
-    <tr>
-      <td align="left">
-        <img src="car11.jfif" width="150"><br>
-        <b>Toyota C-HR</b><br>
-        or similar SUV<br>
-        👤5 💼2 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM  /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car12.jfif" width="150"><br>
-        <b>Toyota Raize</b><br>
-        or similar SUV<br>
-        👤5 💼5 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM ??? /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car13.jfif" width="150"><br>
-        <b>Class Standard SUV</b><br>
-        or similar SUV<br>
-        👤5 💼3 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM ??? /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car14.jfif" width="150"><br>
-        <b>Class Special Van</b><br>
-        or similar Van<br>
-        👤5 💼4 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM ??? /day</b>
-        <button>View Deal</button>
-      </td>
-      <td align="left">
-        <img src="car15.jfif" width="150"><br>
-        <b>Kia Sportage</b><br>
-        or similar SUV<br>
-        👤5 💼5 🚘4-5<br>
-        <b>M</b><br>
-        <b>RM ??? /day</b>
-        <button>View Deal</button>
-      </td>
-    </tr>
-  </table>
+  <h1>Car Listings</h1>
+
+  <div class="car-grid">
+
+    <div class="car-card">
+      <img src="car1.jfif" alt="Proton Saga">
+      <b>Proton Saga</b>
+      <small>or similar Small</small>
+      <div class="icons">👤2 💼2 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 82 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car2.jfif" alt="Perodua Axia">
+      <b>Perodua Axia</b>
+      <small>or similar Small</small>
+      <div class="icons">👤4 💼2 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 81 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car3.jfif" alt="Intermediate Car">
+      <b>Class Intermediate Car</b>
+      <small>or similar Medium</small>
+      <div class="icons">👤5 💼3 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 140 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car4.jfif" alt="Honda Accord">
+      <b>Honda Accord</b>
+      <small>or similar Medium</small>
+      <div class="icons">👤5 💼3 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 242 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car5.jfif" alt="Bezza">
+      <b>Perodua Bezza</b>
+      <small>or similar Large</small>
+      <div class="icons">👤5 💼2 🚘2/4</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 86 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car6.jfif" alt="Exora">
+      <b>Proton Exora</b>
+      <small>or similar Van</small>
+      <div class="icons">👤5 💼3 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 180 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car7.jfif" alt="Full-size SUV">
+      <b>Class Full-size SUV</b>
+      <small>or similar SUV</small>
+      <div class="icons">👤5 💼2 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 303 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car8.jfif" alt="Mercedes C-Class">
+      <b>Mercedes-Benz C-Class</b>
+      <small>or similar Large</small>
+      <div class="icons">👤5 💼5 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 1,102 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car9.jfif" alt="Standard Van">
+      <b>Class Standard Van</b>
+      <small>or similar Van</small>
+      <div class="icons">👤5 💼3 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 180 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car10.jfif" alt="Mercedes E-Class">
+      <b>Mercedes-Benz E-Class</b>
+      <small>or similar Luxury</small>
+      <div class="icons">👤5 💼5 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM 1,102 /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car11.jfif" alt="Toyota C-HR">
+      <b>Toyota C-HR</b>
+      <small>or similar SUV</small>
+      <div class="icons">👤5 💼2 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM ??? /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car12.jfif" alt="Toyota Raize">
+      <b>Toyota Raize</b>
+      <small>or similar SUV</small>
+      <div class="icons">👤5 💼5 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM ??? /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car13.jfif" alt="Standard SUV">
+      <b>Class Standard SUV</b>
+      <small>or similar SUV</small>
+      <div class="icons">👤5 💼3 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM ??? /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car14.jfif" alt="Special Van">
+      <b>Class Special Van</b>
+      <small>or similar Van</small>
+      <div class="icons">👤5 💼4 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM ??? /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+    <div class="car-card">
+      <img src="car15.jfif" alt="Kia Sportage">
+      <b>Kia Sportage</b>
+      <small>or similar SUV</small>
+      <div class="icons">👤5 💼5 🚘4-5</div>
+      <div class="transmission">M</div>
+      <div class="price">RM ??? /day</div>
+      <button class="btn">View Deal</button>
+    </div>
+
+  </div>
 
 </body>
 </html>
