@@ -106,6 +106,9 @@
       justify-items: center;
     }
 
+    .gallery div {
+      text-align: center;
+    }
 
     .gallery img {
       width: 300px;
@@ -120,6 +123,13 @@
       transform: scale(1.05);
     }
 
+    .gallery p {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #444;
+    }
+
     @media (max-width: 768px) {
       section.feature {
         flex-direction: column;
@@ -128,6 +138,10 @@
       section.feature img,
       section.feature div {
         width: 100%;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
       }
 
       .gallery img {
@@ -167,32 +181,32 @@
   </div>
 
   <section class="gallery">
-  <div>
-    <img src="4x4.jpg" alt="4x4">
-    <p>Car 1</p>
-  </div>
-  <div>
-    <img src="sedan.jpg" alt="Sedan">
-    <p>Car 2</p>
-  </div>
-  <div>
-    <img src="suv.jpg" alt="SUV">
-    <p>Car 3</p>
-  </div>
-  <div>
-    <img src="car4.jpg" alt="Ferrari SF 90">
-    <p>Car 4</p>
-  </div>
-  <div>
-    <img src="uaz.jpg" alt="UAZ">
-    <p>Car 5</p>
-  </div>
-  <div>
-    <img src="bike.jpg" alt="Bike">
-    <p>Car 6</p>
-  </div>
-</section>
-
+    <div>
+      <img src="4x4.jpg" alt="4x4">
+      <p>Car 1</p>
+    </div>
+    <div>
+      <img src="sedan.jpg" alt="Sedan">
+      <p>Car 2</p>
+    </div>
+    <div>
+      <img src="suv.jpg" alt="SUV">
+      <p>Car 3</p>
+    </div>
+    <div>
+      <img src="car4.jpg" alt="Ferrari SF 90">
+      <p>Car 4</p>
+    </div>
+    <div>
+      <img src="uaz.jpg" alt="UAZ">
+      <p>Car 5</p>
+    </div>
+    <div>
+      <img src="bike.jpg" alt="Bike">
+      <p>Car 6</p>
+    </div>
+  </section>
 
 </body>
 </html>
+
