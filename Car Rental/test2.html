@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Listings | Bookmycar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0e5c7d;
+      --secondary: #1e6c90;
+      --accent: #ff6b35;
+      --light: #f0f4f7;
+      --dark: #333;
+      --gray: #6c757d;
+      --card-bg: #ffffff;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.1);
+
+      --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      --secondary-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      --dark-bg: #0f172a;
+      --darker-bg: #0a0f1d;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border-color: rgba(255, 255, 255, 0.15);
+      --success: #10b981;
+      --error: #ef4444;
+      --focus: rgba(14, 165, 233, 0.2
+      
+      /* Spacing variables for consistency */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: var(--spacing-sm) 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .logo i {
+      color: var(--accent);
+      font-size: clamp(1.5rem, 3vw, 1.75rem);
+    }
+
+    header h1 {
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: var(--spacing-xs);
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background-color: var(--secondary);
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+    nav a:hover {
+      background-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    nav a i {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+/* Responsive Design */
+    @media (max-width: 992px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .main-nav {
+        position: fixed;
+        top: 70px; /* Below header */
+        right: -100%;
+        height: calc(100vh - 70px);
+        width: 70%;
+        max-width: 300px;
+        background: var(--primary);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--spacing-lg);
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        padding: var(--spacing-lg);
+        overflow-y: auto;
+      }
+      
+      .main-nav.active {
+        right: 0;
+      }
+      
+      .main-nav a {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-sm);
+      }
+
+      .car-detail-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .car-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+        gap: var(--spacing-sm);
+      }
+      
+      .page-hero h1 {
+        font-size: clamp(1.75rem, 5vw, 2.25rem);
+      }
+      
+      .page-hero p {
+        font-size: clamp(1rem, 2.5vw, 1.125rem);
+      }
+      
+      .filter-buttons {
+        flex-direction: column;
+      }
+      
+      .filter-buttons > * {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .filters-container {
+        flex-direction: column;
+      }
+      
+      .filter-group {
+        min-width: 100%;
+      }
+      
+      .grid-controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .car-features {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+    }
+</style>
+
+ <!-- Header with Navigation -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-car"></i>
+      <h1>Bookmycar</h1>
+    </div>
+    
+    <button class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="#"><i class="fas fa-car"></i> Explore</a>
+      <a href="#"><i class="fas fa-tag"></i> Deals</a>
+      <a href="#"><i class="fas fa-phone"></i> Contact</a>
+      <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
+    </nav>
+  </header>
+
+
+
+  <script>
+  // Hamburger menu functionality
+  const hamburger = document.getElementById('hamburger');
+  const mainNav = document.getElementById('main-nav');
+  
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mainNav.classList.toggle('active');
+    hamburger.innerHTML = mainNav.classList.contains('active') 
+      ? '<i class="fas fa-times"></i>' 
+      : '<i class="fas fa-bars"></i>';
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mainNav.contains(e.target) && !hamburger.contains(e.target) && mainNav.classList.contains('active')) {
+      mainNav.classList.remove('active');
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  });
+  
+  // Close menu when clicking a link
+  const navLinks = document.querySelectorAll('.main-nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('active');
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+  
+  // Close menu when resizing above mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 992 && mainNav.classList.contains('active')) {
+      mainNav.classList.remove('active');
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  });
+
+
+  
+
+ 
+
+
+
+
+
+</script>
+
+</body>
+</html>

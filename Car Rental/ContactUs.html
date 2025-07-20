@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Bookmycar Premium</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Color Variables */
+      --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      --secondary-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      --dark-bg: #0f172a;
+      --darker-bg: #0a0f1d;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border-color: rgba(255, 255, 255, 0.15);
+      --success: #10b981;
+      --error: #ef4444;
+      --focus: rgba(14, 165, 233, 0.2);
+      
+      /* Typography Variables */
+      --font-sans: 'Segoe UI', system-ui, sans-serif;
+      --font-serif: Georgia, serif;
+      --text-base: 1rem;
+      --text-scale: 1.25;
+      
+      /* Calculated Type Scale */
+      --h1: clamp(2rem, 5vw, 3rem);
+      --h2: clamp(1.5rem, 4vw, 2.25rem);
+      --h3: clamp(1.25rem, 3.5vw, 1.75rem);
+      --h4: clamp(1rem, 3vw, 1.25rem);
+      --small: clamp(0.875rem, 2.5vw, 1rem);
+      
+      /* Spacing */
+      --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+      --spacing-sm: clamp(0.5rem, 1.5vw, 1rem);
+      --spacing-md: clamp(1rem, 2.5vw, 1.5rem);
+      --spacing-lg: clamp(1.5rem, 4vw, 2.5rem);
+      --spacing-xl: clamp(2rem, 6vw, 4rem);
+      --spacing-xxl: clamp(4rem, 8vw, 8rem);
+      
+      /* Other */
+      --border-radius: clamp(8px, 2vw, 12px);
+      --transition: all 0.3s ease;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 20%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      /* Vendor prefixes for backdrop-filter */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      padding: var(--spacing-md) var(--spacing-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      font-size: var(--h3);
+      font-weight: 800;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .logo i {
+      font-size: var(--h2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: var(--transition);
+      padding: var(--spacing-sm) 0;
+      font-size: var(--h4);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+    }
+
+    .auth-buttons a {
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: var(--h4);
+    }
+
+    .auth-buttons a:first-child {
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .auth-buttons a:first-child:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .auth-buttons a:last-child {
+      background: var(--secondary-gradient);
+      color: white;
+    }
+
+    .auth-buttons a:last-child:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: var(--h3);
+      cursor: pointer;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--darker-bg);
+      z-index: 1000;
+      transition: var(--transition);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--spacing-md);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .mobile-menu-links a:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-menu-links a.active {
+      background: rgba(14, 165, 233, 0.1);
+      color: #0ea5e9;
+    }
+
+    .mobile-auth-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      margin-top: auto;
+    }
+
+    .mobile-auth-buttons a {
+      display: block;
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .mobile-auth-buttons a:first-child {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .mobile-auth-buttons a:last-child {
+      background: var(--secondary-gradient);
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: var(--spacing-xxl) var(--spacing-lg);
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      gap: var(--spacing-xl);
+      max-width: 1400px;
+      width: 100%;
+    }
+
+    .contact-info {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl);
+      border: 1px solid var(--border-color);
+      /* Vendor prefixes for backdrop-filter */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h2 {
+      font-size: var(--h2);
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      padding-bottom: var(--spacing-md);
+    }
+
+    .contact-info h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .contact-method {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      background: var(--accent-gradient);
+      width: clamp(40px, 6vw, 50px);
+      height: clamp(40px, 6vw, 50px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--h3);
+      flex-shrink: 0;
+    }
+
+    .contact-details h3 {
+      font-size: var(--h3);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .contact-details p, 
+    .contact-details a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: var(--h4);
+    }
+
+    .contact-details a:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+
+    .business-hours {
+      background: rgba(255, 255, 255, 0.05);
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius);
+    }
+
+    .hours-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+    }
+
+    .hours-list div {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-xs) 0;
+      border-bottom: 1px solid var(--border-color);
+      font-size: var(--small);
+    }
+
+    .hours-list div:last-child {
+      border-bottom: none;
+    }
+
+    .contact-form {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl);
+      border: 1px solid var(--border-color);
+      /* Vendor prefixes for backdrop-filter */
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .form-header {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-header h2 {
+      font-size: var(--h2);
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      padding-bottom: var(--spacing-sm);
+    }
+
+    .form-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    .form-header p {
+      color: var(--text-secondary);
+      font-size: var(--h4);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-md);
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      font-weight: 500;
+      font-size: var(--h4);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      transition: var(--transition);
+      font-size: var(--h4);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+
+    .form-group i {
+      position: absolute;
+      right: var(--spacing-md);
+      top: 50%;
+      transform: translateY(50%);
+      color: var(--text-secondary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+      gap: var(--spacing-md);
+    }
+
+    /* Enhanced Custom Select Styles */
+    .custom-select {
+      position: relative;
+      width: 100%;
+    }
+    
+    .select-header {
+      padding: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+      font-size: var(--h4);
+    }
+    
+    .select-header:hover {
+      border-color: #0ea5e9;
+    }
+    
+    .select-header.active {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+    
+    .select-header i {
+      transition: transform 0.3s ease;
+    }
+    
+    .select-header.active i {
+      transform: rotate(180deg);
+    }
+    
+    .selected-option {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .selected-option i {
+      font-size: var(--h4);
+      width: 24px;
+      text-align: center;
+    }
+    
+    .select-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--darker-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      margin-top: var(--spacing-xs);
+      overflow: hidden;
+      z-index: 10;
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+    
+    .select-options.active {
+      max-height: 300px;
+      opacity: 1;
+      overflow-y: auto;
+    }
+    
+    .option {
+      padding: var(--spacing-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      transition: var(--transition);
+      font-size: var(--h4);
+    }
+    
+    .option:hover {
+      background: rgba(14, 165, 233, 0.1);
+    }
+    
+    .option i {
+      font-size: var(--h4);
+      width: 24px;
+      text-align: center;
+    }
+    
+    .hidden-select {
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-gradient);
+      color: white;
+      padding: var(--spacing-md) var(--spacing-xl);
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-sans);
+      font-size: var(--h4);
+      width: 100%;
+      margin-top: var(--spacing-sm);
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn i {
+      margin-left: var(--spacing-xs);
+    }
+
+    /* Success Message */
+    .success-message {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--success);
+      color: var(--text-primary);
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius);
+      margin-top: var(--spacing-md);
+      display: none;
+      font-size: var(--h4);
+    }
+
+    /* Map Section */
+    .map-section {
+      margin-top: var(--spacing-xl);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: clamp(300px, 40vh, 500px);
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--darker-bg);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: var(--h3);
+      font-weight: 800;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-lg);
+      flex-wrap: wrap;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin: var(--spacing-md) 0;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      transition: var(--transition);
+      font-size: var(--h4);
+    }
+
+    .social-icons a:hover {
+      background: var(--accent-gradient);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      color: var(--text-secondary);
+      font-size: var(--small);
+      margin-top: var(--spacing-md);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .contact-container {
+        gap: var(--spacing-lg);
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .auth-buttons {
+        display: none;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .contact-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-method {
+        flex-direction: column;
+      }
+      
+      .hours-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info,
+      .contact-form {
+        padding: var(--spacing-lg);
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-car"></i>
+      Bookmycar
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="homepage.html">Explore</a>
+      <a href="car-rental.html">Deals</a>
+      
+      <a href="AboutUs.html">About Us</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <i class="fas fa-car"></i>
+        Bookmycar
+      </div>
+      <button id="closeMenu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="index.html">Home</a>
+      <a href="homepage.html">Explore</a>
+      <a href="car-rental.html">Deals</a>
+      
+      <a href="AboutUs.html">About Us</a>
+    </div>
+
+  </div>
+
+  <main>
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-info animate">
+          <h2>Contact Information</h2>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Our Location</h3>
+                <p>123 Auto Avenue, Downtown</p>
+                <p>Metropolis, MP 12345</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Call Us</h3>
+                <p>+1 (800) CAR-RENT</p>
+                <p>+1 (800) 227-7368</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email Us</h3>
+                <a href="mailto:info@bookmycar.com">info@bookmycar.com</a>
+                <a href="mailto:support@bookmycar.com">support@bookmycar.com</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="business-hours">
+            <h3>Business Hours</h3>
+            <div class="hours-list">
+              <div>
+                <span>Monday - Friday</span>
+                <span>8:00 AM - 8:00 PM</span>
+              </div>
+              <div>
+                <span>Saturday</span>
+                <span>9:00 AM - 6:00 PM</span>
+              </div>
+              <div>
+                <span>Sunday</span>
+                <span>10:00 AM - 4:00 PM</span>
+              </div>
+              <div>
+                <span>Holidays</span>
+                <span>10:00 AM - 3:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form animate delay-1">
+          <div class="form-header">
+            <h2>Send Us a Message</h2>
+            <p>We'll get back to you within 24 hours</p>
+          </div>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your name" required>
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Your email" required>
+                <i class="fas fa-envelope"></i>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Your phone number">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <div class="custom-select">
+                  <div class="select-header" id="selectHeader">
+                    <div class="selected-option">
+                      <i class="fas fa-question-circle"></i>
+                      <span>Select a subject</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="select-options" id="selectOptions">
+                    <div class="option" data-value="reservation">
+                      <i class="fas fa-calendar-check"></i> Reservation Inquiry
+                    </div>
+                    <div class="option" data-value="support">
+                      <i class="fas fa-headset"></i> Customer Support
+                    </div>
+                    <div class="option" data-value="feedback">
+                      <i class="fas fa-comment-alt"></i> Feedback & Suggestions
+                    </div>
+                    <div class="option" data-value="business">
+                      <i class="fas fa-handshake"></i> Business Partnership
+                    </div>
+                  </div>
+                </div>
+                <select id="subject" name="subject" class="hidden-select" required>
+                  <option value="">Select a subject</option>
+                  <option value="reservation">Reservation Inquiry</option>
+                  <option value="support">Customer Support</option>
+                  <option value="feedback">Feedback & Suggestions</option>
+                  <option value="business">Business Partnership</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" rows="6" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div class="success-message" id="successMessage">
+              <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <section class="map-section">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.966309534304!2d-73.9913050845942!3d40.74205497932878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a3f81b1b85%3A0x7e27b20c1100d73d!2s123%20Auto%20Ave%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-car"></i>
+        Bookmycar
+      </div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Vehicles</a>
+        <a href="#">Deals</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2023 Bookmycar Premium. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Custom select functionality
+    const selectHeader = document.getElementById('selectHeader');
+    const selectOptions = document.getElementById('selectOptions');
+    const options = document.querySelectorAll('.option');
+    const subjectSelect = document.getElementById('subject');
+    
+    // Toggle dropdown visibility
+    selectHeader.addEventListener('click', () => {
+      selectHeader.classList.toggle('active');
+      selectOptions.classList.toggle('active');
+    });
+    
+    // Handle option selection
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        // Update visual selection
+        const icon = option.querySelector('i').className;
+        const text = option.textContent.trim();
+        
+        selectHeader.querySelector('.selected-option i').className = icon;
+        selectHeader.querySelector('.selected-option span').textContent = text;
+        
+        // Update hidden select value
+        const value = option.getAttribute('data-value');
+        subjectSelect.value = value;
+        
+        // Close dropdown
+        selectHeader.classList.remove('active');
+        selectOptions.classList.remove('active');
+      });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
+        selectHeader.classList.remove('active');
+        selectOptions.classList.remove('active');
+      }
+    });
+    
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show success message
+      document.getElementById('successMessage').style.display = 'block';
+      
+      // Reset form after 3 seconds
+      setTimeout(function() {
+        document.getElementById('contactForm').reset();
+        document.getElementById('successMessage').style.display = 'none';
+        
+        // Reset custom select
+        selectHeader.querySelector('.selected-option i').className = 'fas fa-question-circle';
+        selectHeader.querySelector('.selected-option span').textContent = 'Select a subject';
+      }, 3000);
+    });
+    
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    const closeMenu = document.getElementById('closeMenu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    closeMenu.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+    
+    overlay.addEventListener('click', function() {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  </script>
+</body>
+</html>
