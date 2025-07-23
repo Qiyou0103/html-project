@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | Bookmycar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Color Variables */
+      --primary: #0e5c7d;
+      --primary-dark: #003d5c;
+      --primary-light: #2d87b6;
+      --secondary: #f39c12;
+      --light-bg: #f0f4f7;
+      --text: #333;
+      --text-light: #666;
+      --white: #fff;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+      
+      /* Spacing Variables */
+      --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+      --spacing-sm: clamp(0.5rem, 1.5vw, 1rem);
+      --spacing-md: clamp(1rem, 2.5vw, 1.5rem);
+      --spacing-lg: clamp(1.5rem, 4vw, 2.5rem);
+      --spacing-xl: clamp(2rem, 6vw, 4rem);
+      --spacing-xxl: clamp(4rem, 8vw, 8rem);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f7 0%, #e6f0f5 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .logo i {
+      font-size: var(--spacing-lg);
+      color: var(--secondary);
+    }
+
+    .logo h1 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hamburger menu styles from Part 1 */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: var(--spacing-xs);
+    }
+
+    .main-nav a {
+      color: white;
+      text-decoration: none;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background-color: transparent;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+    .main-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .main-nav a i {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+    .main-nav a.active {
+      color: var(--secondary);
+      background-color: rgba(243, 156, 18, 0.1);
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: var(--spacing-sm);
+    }
+
+    .btn {
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .btn-login:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-signup {
+      background: var(--secondary);
+      color: var(--white);
+    }
+
+    .btn-signup:hover {
+      background: #e67e22;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      max-width: 600px;
+      margin: 0 auto var(--spacing-lg);
+      opacity: 0.9;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: 
+        radial-gradient(circle at 10% 20%, var(--secondary) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, var(--secondary) 0%, transparent 20%);
+    }
+
+    /* Team Section - MODIFIED FOR SINGLE ROW */
+    .team-section {
+      padding: var(--spacing-xl) var(--spacing-lg);
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 5px;
+      background: var(--secondary);
+      border-radius: 5px;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto var(--spacing-xl);
+      line-height: 1.8;
+    }
+
+    /* MODIFIED team container for single row display */
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--spacing-lg);
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-bottom: 0;
+      justify-content: center;
+    }
+
+    .member {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      width: 100%;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+
+    .member-img {
+      position: relative;
+      height: clamp(220px, 25vw, 280px);
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: clamp(3rem, 8vw, 4rem);
+    }
+
+    .member-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .social-links {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .member:hover .social-links {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(35px, 4vw, 40px);
+      height: clamp(35px, 4vw, 40px);
+      background: var(--dark);
+      border-radius: 50%;
+      color: var(--secondary);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--white);
+      color: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .member-info {
+      padding: var(--spacing-md);
+      text-align: center;
+    }
+
+    .member-name {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .member-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+      font-size: clamp(1rem, 2vw, 1.1rem);
+    }
+
+    .member-desc {
+      color: var(--text-light);
+      font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+      line-height: 1.7;
+    }
+
+
+
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .team-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .main-nav {
+        position: fixed;
+        top: 70px; /* Below header */
+        right: -100%;
+        height: calc(100vh - 70px);
+        width: 70%;
+        max-width: 300px;
+        background: var(--primary-dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--spacing-lg);
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        padding: var(--spacing-lg);
+        overflow-y: auto;
+      }
+      
+      .main-nav.active {
+        right: 0;
+      }
+      
+      .main-nav a {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-sm);
+      }
+
+      .team-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+      }
+      
+      .team-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+      }
+      
+      .stats-container {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .team-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Updated Header with Hamburger Menu -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-car"></i>
+      <h1>Bookmycar</h1>
+    </div>
+    
+    <button class="hamburger" id="hamburger">
+       <svg width="25px" height="30px" viewBox="0 0 48 48"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M7.94977 11.9498H39.9498" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.94977 23.9498H39.9498" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.94977 35.9498H39.9498" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html"><svg fill="#333" width="25px" height="25px" viewBox="-2 -2 24 24"><path d='M18 18V7.132l-8-4.8-8 4.8V18h4v-2.75a4 4 0 1 1 8 0V18h4zm-6 2v-4.75a2 2 0 1 0-4 0V20H2a2 2 0 0 1-2-2V7.132a2 2 0 0 1 .971-1.715l8-4.8a2 2 0 0 1 2.058 0l8 4.8A2 2 0 0 1 20 7.132V18a2 2 0 0 1-2 2h-6z'/></svg>
+        Home</a>
+      <a href="CarList.html"><svg fill="#333" width="18px" height="18px" viewBox="0 0 450 450"> <path style="stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;" d="M449.977,171.981c-0.359-6.783-5.064-11.273-10.509-10.028l-39.785,9.096c-4.115,0.941-7.471,4.892-8.709,9.694c-17.478-25.176-48.266-65.94-70.161-75.101c-3.031-1.246-21.897-7.461-95.814-7.461s-92.782,6.215-95.878,7.488c-21.849,9.141-52.623,49.898-70.097,75.073c-1.239-4.802-4.594-8.752-8.709-9.693l-39.785-9.096c-5.444-1.245-10.149,3.245-10.509,10.028c-0.362,6.784,3.76,13.292,9.202,14.537l35.292,8.069c-12.303,9.173-20.271,23.837-20.271,40.363l5.031,86.86c0,16.574,13.436,30.009,30.01,30.009h18.047c16.574,0,30.009-13.435,30.009-30.009l-0.589-6.358h236.492l-0.589,6.358c0,16.574,13.435,30.009,30.009,30.009h18.047c16.574,0,30.01-13.435,30.01-30.009l5.031-86.86c0-16.526-7.968-31.189-20.271-40.363l35.292-8.069C446.217,185.273,450.339,178.765,449.977,171.981z M137.419,126.198c1.735-0.564,19.909-5.877,87.581-5.877c67.535,0,85.772,5.292,87.57,5.874c13.097,5.69,35.568,32.828,54.033,58.438H83.394C101.881,158.991,124.376,131.822,137.419,126.198z M267.265,300.764h-84.531c-3.892,0-7.045-3.154-7.045-7.044c0-3.891,3.153-7.044,7.0457.044h84.531c3.892,0,7.045,3.154,7.045,7.044C274.31,297.61,271.157,300.764,267.265,300.764zM336.099,263.194c0,0-14.089-8.116-31.196-10.096H136.442c-17.107,1.98-31.196,10.096-31.196,10.096c-39.247,10.064-49.914-22.139-49.914-22.139h330.682C386.013,241.055,375.346,273.257,336.099,263.194z"/></svg>
+        Explore</a>
+      <a href="Form.html"><svg width="18px" height="18px" viewBox="0 0 15 15"> <path d="M0.5 7.5L0.146447 7.14645C-0.0488155 7.34171 -0.0488155 7.65829 0.146447 7.85355L0.5 7.5ZM7.5 14.5L7.14645 14.8536C7.34171 15.0488 7.65829 15.0488 7.85355 14.8536L7.5 14.5ZM14.5 7.5L14.8536 7.85355C14.9473 7.75979 15 7.63261 15 7.5H14.5ZM7.5 0.5V0C7.36739 0 7.24021 0.0526784 7.14645 0.146447L7.5 0.5ZM0.146447 7.85355L7.14645 14.8536L7.85355 14.1464L0.853553 7.14645L0.146447 7.85355ZM7.85355 14.8536L14.8536 7.85355L14.1464 7.14645L7.14645 14.1464L7.85355 14.8536ZM15 7.5V1.5H14V7.5H15ZM13.5 0H7.5V1H13.5V0ZM7.14645 0.146447L0.146447 7.14645L0.853553 7.85355L7.85355 0.853553L7.14645 0.146447ZM15 1.5C15 0.671573 14.3284 0 13.5 0V1C13.7761 1 14 1.22386 14 1.5H15ZM10.5 5C10.2239 5 10 4.77614 10 4.5H9C9 5.32843 9.67157 6 10.5 6V5ZM11 4.5C11 4.77614 10.7761 5 10.5 5V6C11.3284 6 12 5.32843 12 4.5H11ZM10.5 4C10.7761 4 11 4.22386 11 4.5H12C12 3.67157 11.3284 3 10.5 3V4ZM10.5 3C9.67157 3 9 3.67157 9 4.5H10C10 4.22386 10.2239 4 10.5 4V3Z" fill="#ffffff"/></svg>
+        Rentals</a>
+      <a href="ContactUs.html"><svg fill="#333" width="18px" height="18px" viewBox="0 0 24 24"><path d="M19.44,13c-.22,0-.45-.07-.67-.12a9.44,9.44,0,0,1-1.31-.39,2,2,0,0,0-2.48,1l-.22.45a12.18,12.18,0,0,1-2.66-2,12.18,12.18,0,0,1-2-2.66L10.52,9a2,2,0,0,0,1-2.48,10.33,10.33,0,0,1-.39-1.31c-.05-.22-.09-.45-.12-.68a3,3,0,0,0-3-2.49h-3a3,3,0,0,0-3,3.41A19,19,0,0,0,18.53,21.91l.38,0a3,3,0,0,0,2-.76,3,3,0,0,0,1-2.25v-3A3,3,0,0,0,19.44,13Zm.5,6a1,1,0,0,1-.34.75,1.05,1.05,0,0,1-.82.25A17,17,0,0,1,4.07,5.22a1.09,1.09,0,0,1,.25-.82,1,1,0,0,1,.75-.34h3a1,1,0,0,1,1,.79q.06.41.15.81a11.12,11.12,0,0,0,.46,1.55l-1.4.65a1,1,0,0,0-.49,1.33,14.49,14.49,0,0,0,7,7,1,1,0,0,0,.76,0,1,1,0,0,0,.57-.52l.62-1.4a13.69,13.69,0,0,0,1.58.46q.4.09.81.15a1,1,0,0,1,.79,1Z"/></svg>
+        Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <h1>Meet Our Exceptional Team</h1>
+      <p>Driving innovation in the car rental industry with passion and expertise</p>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="section-title">
+      <h2>Leadership Team</h2>
+    </div>
+    
+    <p class="section-subtitle">
+      We're a passionate team dedicated to revolutionizing your car rental experience. 
+      With expertise in technology, customer service, and mobility solutions, we're here 
+      to make your journey seamless and enjoyable.
+    </p>
+    
+    <div class="team-container" id="teamContainer">
+      <div class="member" style="animation-delay: 0.1s">
+        <div class="member-img">
+          <img src="assets/Qiyou.jpg" alt="Qiyou">
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">Qiyou</h3>
+          <div class="member-role">The Freerider</div>
+          <p class="member-desc">
+            Avoids contributing in group work but still expects full credit.
+          </p>
+        </div>
+      </div>
+      
+      <div class="member" style="animation-delay: 0.2s">
+        <div class="member-img">
+          <img src="assets/ks.jpg" alt="ks">
+          <div class="social-links">
+           <a href="#" aria-label="LinkedIn"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">KS</h3>
+          <div class="member-role">The Sleeper</div>
+          <p class="member-desc">
+            Falls asleep in class, missing important lessons.
+          </p>
+        </div>
+      </div>
+      
+      <div class="member" style="animation-delay: 0.3s">
+        <div class="member-img">
+          <img src="assets/oscar.png" alt="Oscar">
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">Oscar</h3>
+          <div class="member-role">The Passive Participant</div>
+          <p class="member-desc">
+           Never asks questions or joins discussions, staying disengaged.
+          </p>
+        </div>
+      </div>
+      
+      <div class="member" style="animation-delay: 0.4s">
+        <div class="member-img">
+          <img src="assets/jr.jpg" alt="JR">
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">JR</h3>
+          <div class="member-role">The Last-Minute Rusher</div>
+          <p class="member-desc">
+            Always starts work near deadlines, leading to poor quality.
+          </p>
+        </div>
+      </div>
+      
+      <div class="member" style="animation-delay: 0.5s">
+        <div class="member-img">
+          <img src="assets/wt.jpg" alt="wt">
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg fill="#f39c12" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3 class="member-name">WT</h3>
+          <div class="member-role">The Ghost</div>
+          <p class="member-desc">
+            Frequently skips classes without valid reasons.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+ 
+
+  <script>
+    // Hamburger menu functionality from Part 1
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+    
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('active');
+      hamburger.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !hamburger.contains(e.target) && mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Close menu when resizing above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992 && mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+
+    // Animate team members on scroll
+    const teamMembers = document.querySelectorAll('.member');
+    
+    const animateOnScroll = () => {
+      teamMembers.forEach(member => {
+        const memberTop = member.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (memberTop < windowHeight - 100) {
+          member.style.animationPlayState = 'running';
+        }
+      });
+    };
+    
+    // Initial check
+    animateOnScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
