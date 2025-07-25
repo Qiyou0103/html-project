@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EliteRide - Premium Car Rental</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Bookmycar</title>
   <style>
     :root {
       --primary: #0e5c7d;
@@ -881,7 +880,6 @@
  <!-- Header with Navigation -->
   <header>
     <div class="logo">
-      <i class="fas fa-car"></i>
       <h1>Bookmycar</h1>
     </div>
     
@@ -905,12 +903,12 @@
   <div class="modal-overlay" id="successModal">
     <div class="success-modal">
       <button class="close-modal" id="closeModal">
-        <i class="fas fa-times"></i>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
       </button>
       
       <div class="modal-header">
         <div class="modal-icon">
-          <i class="fas fa-check"></i>
+          <svg fill="#ffffff" width="800px" height="800px" viewBox="0 0 24 24"><path d="M16.972 6.251c-.967-.538-2.185-.188-2.72.777l-3.713 6.682-2.125-2.125c-.781-.781-2.047-.781-2.828 0-.781.781-.781 2.047 0 2.828l4 4c.378.379.888.587 1.414.587l.277-.02c.621-.087 1.166-.46 1.471-1.009l5-9c.537-.966.189-2.183-.776-2.72z"/></svg>
         </div>
         <h2>Booking Confirmed!</h2>
         <p>Your booking has been successfully submitted. We'll contact you within 24 hours to finalize the details.</p>
@@ -942,10 +940,12 @@
       
       <div class="modal-actions">
         <button class="modal-btn btn-primary">
-          <i class="fas fa-print"></i> Print Confirmation
+          <svg fill="#ffffff" width="25px" height="25px" viewBox="0 0 24 24"><path d="M7,10a1,1,0,1,0,1,1A1,1,0,0,0,7,10ZM19,6H18V3a1,1,0,0,0-1-1H7A1,1,0,0,0,6,3V6H5A3,3,0,0,0,2,9v6a3,3,0,0,0,3,3H6v3a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V18h1a3,3,0,0,0,3-3V9A3,3,0,0,0,19,6ZM8,4h8V6H8Zm8,16H8V16h8Zm4-5a1,1,0,0,1-1,1H18V15a1,1,0,0,0-1-1H7a1,1,0,0,0-1,1v1H5a1,1,0,0,1-1-1V9A1,1,0,0,1,5,8H19a1,1,0,0,1,1,1Z"/></svg>
+          Print Confirmation
         </button>
         <button class="modal-btn btn-secondary" id="newBookingBtn">
-          <i class="fas fa-plus"></i> New Booking
+         <svg fill="#0e5c7d" width="25px" height="25px" viewBox="-32 0 512 512"><path d="M384 240Q398 240 407 250 416 259 416 273L416 351Q416 365 407 375 398 384 384 384L384 416Q384 430 375 439 366 448 352 448L96 448Q82 448 73 439 64 430 64 416L64 384Q50 384 41 375 32 365 32 351L32 273Q32 259 41 250 50 240 64 240L64 96Q64 81 73 73 81 64 96 64L233 64Q256 64 272 80L368 176Q384 192 384 215L384 240ZM112 112L112 240 336 240 336 192 240 192 240 112 112 112ZM360 328Q370 328 377 321 384 314 384 304 384 293 378 287 371 280 360 280 350 280 343 287 336 294 336 304 336 314 343 321 350 328 360 328ZM336 400L336 352 112 352 112 400 336 400Z" /></svg>
+          New Booking
         </button>
       </div>
     </div>
@@ -980,37 +980,45 @@
         <form id="bookingForm">
           <div class="form-grid">
             <div class="form-group">
-              <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+              <label for="name"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 24 24"><path d="M15.71,12.71a6,6,0,1,0-7.42,0,10,10,0,0,0-6.22,8.18,1,1,0,0,0,2,.22,8,8,0,0,1,15.9,0,1,1,0,0,0,1,.89h.11a1,1,0,0,0,.88-1.1A10,10,0,0,0,15.71,12.71ZM12,12a4,4,0,1,1,4-4A4,4,0,0,1,12,12Z"/></svg>
+                Full Name *</label>
               <input type="text" id="name" name="name" placeholder="John Doe" required>
             </div>
 
             <div class="form-group">
-              <label for="ic"><i class="fas fa-id-card"></i> IC/Passport Number *</label>
+              <label for="ic"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 256 256"><path d="M196,112a4.0002,4.0002,0,0,1-4,4H152a4,4,0,0,1,0-8h40A4.0002,4.0002,0,0,1,196,112Zm-4,28H152a4,4,0,0,0,0,8h40a4,4,0,0,0,0-8Zm-65.03467,27a3.99992,3.99992,0,0,1-7.74707,1.99512,28.01047,28.01047,0,0,0-54.23584.00146,3.9998,3.9998,0,1,1-7.74707-1.99414,35.93915,35.93915,0,0,1,19.54688-23.58179,27.99991,27.99991,0,1,1,30.63672.00013A35.94048,35.94048,0,0,1,126.96533,167ZM92.10059,140a20,20,0,1,0-20-20A20.02292,20.02292,0,0,0,92.10059,140ZM228,56V200a12.01375,12.01375,0,0,1-12,12H40a12.01375,12.01375,0,0,1-12-12V56A12.01375,12.01375,0,0,1,40,44H216A12.01375,12.01375,0,0,1,228,56Zm-8,0a4.00458,4.00458,0,0,0-4-4H40a4.00458,4.00458,0,0,0-4,4V200a4.00458,4.00458,0,0,0,4,4H216a4.00458,4.00458,0,0,0,4-4Z"/></svg>
+
+                IC/Passport Number *</label>
               <input type="text" id="ic" name="ic" placeholder="900101-14-5678" required>
             </div>
 
             <div class="form-group">
-              <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+              <label for="phone"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 24 24"><path d="M19.44,13c-.22,0-.45-.07-.67-.12a9.44,9.44,0,0,1-1.31-.39,2,2,0,0,0-2.48,1l-.22.45a12.18,12.18,0,0,1-2.66-2,12.18,12.18,0,0,1-2-2.66L10.52,9a2,2,0,0,0,1-2.48,10.33,10.33,0,0,1-.39-1.31c-.05-.22-.09-.45-.12-.68a3,3,0,0,0-3-2.49h-3a3,3,0,0,0-3,3.41A19,19,0,0,0,18.53,21.91l.38,0a3,3,0,0,0,2-.76,3,3,0,0,0,1-2.25v-3A3,3,0,0,0,19.44,13Zm.5,6a1,1,0,0,1-.34.75,1.05,1.05,0,0,1-.82.25A17,17,0,0,1,4.07,5.22a1.09,1.09,0,0,1,.25-.82,1,1,0,0,1,.75-.34h3a1,1,0,0,1,1,.79q.06.41.15.81a11.12,11.12,0,0,0,.46,1.55l-1.4.65a1,1,0,0,0-.49,1.33,14.49,14.49,0,0,0,7,7,1,1,0,0,0,.76,0,1,1,0,0,0,.57-.52l.62-1.4a13.69,13.69,0,0,0,1.58.46q.4.09.81.15a1,1,0,0,1,.79,1Z"/></svg> 
+                Phone Number *</label>
               <input type="tel" id="phone" name="phone" placeholder="+60 12-345 6789" required>
             </div>
 
             <div class="form-group">
-              <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+              <label for="email"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4ZM5,6H19a1,1,0,0,1,1,1l-8,4.88L4,7A1,1,0,0,1,5,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V9.28l7.48,4.57a1,1,0,0,0,1,0L20,9.28Z"/></svg>
+                Email Address *</label>
               <input type="email" id="email" name="email" placeholder="john@example.com" required>
             </div>
 
             <div class="form-group">
-              <label for="pickup"><i class="fas fa-calendar-alt"></i> Pickup Date *</label>
+              <label for="pickup"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 1024 1024" ><path d="M960 95.888l-256.224.001V32.113c0-17.68-14.32-32-32-32s-32 14.32-32 32v63.76h-256v-63.76c0-17.68-14.32-32-32-32s-32 14.32-32 32v63.76H64c-35.344 0-64 28.656-64 64v800c0 35.343 28.656 64 64 64h896c35.344 0 64-28.657 64-64v-800c0-35.329-28.656-63.985-64-63.985zm0 863.985H64v-800h255.776v32.24c0 17.679 14.32 32 32 32s32-14.321 32-32v-32.224h256v32.24c0 17.68 14.32 32 32 32s32-14.32 32-32v-32.24H960v799.984zM736 511.888h64c17.664 0 32-14.336 32-32v-64c0-17.664-14.336-32-32-32h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32zm0 255.984h64c17.664 0 32-14.32 32-32v-64c0-17.664-14.336-32-32-32h-64c-17.664 0-32 14.336-32 32v64c0 17.696 14.336 32 32 32zm-192-128h-64c-17.664 0-32 14.336-32 32v64c0 17.68 14.336 32 32 32h64c17.664 0 32-14.32 32-32v-64c0-17.648-14.336-32-32-32zm0-255.984h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32h64c17.664 0 32-14.336 32-32v-64c0-17.68-14.336-32-32-32zm-256 0h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32h64c17.664 0 32-14.336 32-32v-64c0-17.68-14.336-32-32-32zm0 255.984h-64c-17.664 0-32 14.336-32 32v64c0 17.68 14.336 32 32 32h64c17.664 0 32-14.32 32-32v-64c0-17.648-14.336-32-32-32z"/></svg>
+                Pickup Date *</label>
               <input type="date" id="pickup" name="pickup" required>
             </div>
 
             <div class="form-group">
-              <label for="return"><i class="fas fa-calendar-alt"></i> Return Date *</label>
+              <label for="return"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 1024 1024" ><path d="M960 95.888l-256.224.001V32.113c0-17.68-14.32-32-32-32s-32 14.32-32 32v63.76h-256v-63.76c0-17.68-14.32-32-32-32s-32 14.32-32 32v63.76H64c-35.344 0-64 28.656-64 64v800c0 35.343 28.656 64 64 64h896c35.344 0 64-28.657 64-64v-800c0-35.329-28.656-63.985-64-63.985zm0 863.985H64v-800h255.776v32.24c0 17.679 14.32 32 32 32s32-14.321 32-32v-32.224h256v32.24c0 17.68 14.32 32 32 32s32-14.32 32-32v-32.24H960v799.984zM736 511.888h64c17.664 0 32-14.336 32-32v-64c0-17.664-14.336-32-32-32h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32zm0 255.984h64c17.664 0 32-14.32 32-32v-64c0-17.664-14.336-32-32-32h-64c-17.664 0-32 14.336-32 32v64c0 17.696 14.336 32 32 32zm-192-128h-64c-17.664 0-32 14.336-32 32v64c0 17.68 14.336 32 32 32h64c17.664 0 32-14.32 32-32v-64c0-17.648-14.336-32-32-32zm0-255.984h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32h64c17.664 0 32-14.336 32-32v-64c0-17.68-14.336-32-32-32zm-256 0h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32h64c17.664 0 32-14.336 32-32v-64c0-17.68-14.336-32-32-32zm0 255.984h-64c-17.664 0-32 14.336-32 32v64c0 17.68 14.336 32 32 32h64c17.664 0 32-14.32 32-32v-64c0-17.648-14.336-32-32-32z"/></svg>
+                Return Date *</label>
               <input type="date" id="return" name="return" required>
             </div>
 
             <div class="form-group">
-              <label for="location"><i class="fas fa-map-marker-alt"></i> Pickup Location *</label>
+              <label for="location"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 16 16"  ><path  d="M10.832 2.688A4.056 4.056 0 0 0 8.02 1.5h-.04a4.056 4.056 0 0 0-4 4c-.013.75.198 1.487.606 2.117L7.734 14h.533l3.147-6.383c.409-.63.62-1.367.606-2.117a4.056 4.056 0 0 0-1.188-2.812zM7.925 2.5l.082.01.074-.01a3.075 3.075 0 0 1 2.941 3.037 2.74 2.74 0 0 1-.467 1.568l-.02.034-.017.035L8 12.279l-2.517-5.1-.017-.039-.02-.034a2.74 2.74 0 0 1-.467-1.568A3.074 3.074 0 0 1 7.924 2.5zm.612 2.169a1 1 0 1 0-1.112 1.663 1 1 0 0 0 1.112-1.663zM6.87 3.837a2 2 0 1 1 2.22 3.326 2 2 0 0 1-2.22-3.326z"/></svg> 
+                Pickup Location *</label>
               <select id="location" name="location" required>
                 <option value="">Select Location</option>
                 <option value="kl">Kuala Lumpur City Center</option>
@@ -1021,7 +1029,8 @@
             </div>
 
             <div class="form-group">
-              <label for="carType"><i class="fas fa-car"></i> Vehicle Type *</label>
+              <label for="carType"><svg id="car" fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 15 15" > <path d="M13.84,6.852,12.6,5.7,11.5,3.5a1.05,1.05,0,0,0-.9-.5H4.4a1.05,1.05,0,0,0-.9.5L2.4,5.7,1.16,6.852A.5.5,0,0,0,1,7.219V11.5a.5.5,0,0,0,.5.5h2c.2,0,.5-.2.5-.4V11h7v.5c0,.2.2.5.4.5h2.1a.5.5,0,0,0,.5-.5V7.219A.5.5,0,0,0,13.84,6.852ZM4.5,4h6l1,2h-8ZM5,8.6c0,.2-.3.4-.5.4H2.4C2.2,9,2,8.7,2,8.5V7.4c.1-.3.3-.5.6-.4l2,.4c.2,0,.4.3.4.5Zm8-.1c0,.2-.2.5-.4.5H10.5c-.2,0-.5-.2-.5-.4V7.9c0-.2.2-.5.4-.5l2-.4c.3-.1.5.1.6.4Z"/> </svg> 
+                Vehicle Type *</label>
               <select id="carType" name="carType" required>
                 <option value="">Select Vehicle</option>
                 <option value="economy">Economy Car</option>
@@ -1033,7 +1042,8 @@
             </div>
 
             <div class="form-group full-width">
-              <label for="requirements"><i class="fas fa-clipboard-list"></i> Special Requirements</label>
+              <label for="requirements"><svg fill="#0e5c7d" width="18px" height="18px" viewBox="0 0 24 24"><path d="M19,14.5 L19,5.5 C19,4.67157288 18.3284271,4 17.5,4 L6.5,4 C5.67157288,4 5,4.67157288 5,5.5 L5,18.5 C5,19.3284271 5.67157288,20 6.5,20 L13.5,20 C14.3284271,20 15,19.3284271 15,18.5 C15,17.1192881 16.1192881,16 17.5,16 C18.3284271,16 19,15.3284271 19,14.5 L19,14.5 Z M18.5014408,16.7913481 C18.1948298,16.9255432 17.8561101,17 17.5,17 C16.6715729,17 16,17.6715729 16,18.5 C16,18.8561101 15.9255432,19.1948298 15.7913481,19.5014408 C16.9873685,18.9526013 17.9526013,17.9873685 18.5014408,16.7913481 L18.5014408,16.7913481 Z M4,5.5 C4,4.11928813 5.11928813,3 6.5,3 L17.5,3 C18.8807119,3 20,4.11928813 20,5.5 L20,14.5 C20,18.0898509 17.0898509,21 13.5,21 L6.5,21 C5.11928813,21 4,19.8807119 4,18.5 L4,5.5 Z M8.5,9 C8.22385763,9 8,8.77614237 8,8.5 C8,8.22385763 8.22385763,8 8.5,8 L15.5,8 C15.7761424,8 16,8.22385763 16,8.5 C16,8.77614237 15.7761424,9 15.5,9 L8.5,9 Z M8.5,12 C8.22385763,12 8,11.7761424 8,11.5 C8,11.2238576 8.22385763,11 8.5,11 L15.5,11 C15.7761424,11 16,11.2238576 16,11.5 C16,11.7761424 15.7761424,12 15.5,12 L8.5,12 Z M8.5,15 C8.22385763,15 8,14.7761424 8,14.5 C8,14.2238576 8.22385763,14 8.5,14 L13.5,14 C13.7761424,14 14,14.2238576 14,14.5 C14,14.7761424 13.7761424,15 13.5,15 L8.5,15 Z"/></svg> 
+                Special Requirements</label>
               <textarea id="requirements" name="requirements" placeholder="Any special requests or requirements..."></textarea>
             </div>
           </div>
@@ -1055,7 +1065,7 @@
           </div>
 
           <button type="submit" class="submit-btn">
-            <i class="fas fa-lock"></i> Book Now - Secure Your Ride
+            Book Now - Secure Your Ride
           </button>
         </form>
       </div>
@@ -1082,7 +1092,7 @@
                     <p><i class="fas fa-star"></i> 4.8/5 (128 reviews)</p>
                   </div>
                   <div class="car-price">RM 200/day</div>
-                  <button class="car-btn"><i class="fas fa-bolt"></i> Quick Book</button>
+                  <button class="car-btn"> Quick Book</button>
                 </div>
               </div>
             </div>
@@ -1101,7 +1111,7 @@
                     <p><i class="fas fa-star"></i> 4.9/5 (95 reviews)</p>
                   </div>
                   <div class="car-price">RM 245.90/day</div>
-                  <button class="car-btn"><i class="fas fa-bolt"></i> Quick Book</button>
+                  <button class="car-btn"> Quick Book</button>
                 </div>
               </div>
             </div>
@@ -1120,16 +1130,13 @@
                     <p><i class="fas fa-star"></i> 4.7/5 (142 reviews)</p>
                   </div>
                   <div class="car-price">RM 185.50/day</div>
-                  <button class="car-btn"><i class="fas fa-bolt"></i> Quick Book</button>
+                  <button class="car-btn"> Quick Book</button>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="carousel-nav">
-            <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-          </div>
+
           
           <div class="carousel-dots">
             <span class="dot active" data-index="0"></span>
@@ -1142,7 +1149,8 @@
       <!-- Map Section -->
       <div class="map-section">
         <div class="map-header">
-          <i class="fas fa-map-marker-alt"></i> Our Locations
+          <svg fill="#ffffff" width="18px" height="18px" viewBox="0 0 16 16"  ><path  d="M10.832 2.688A4.056 4.056 0 0 0 8.02 1.5h-.04a4.056 4.056 0 0 0-4 4c-.013.75.198 1.487.606 2.117L7.734 14h.533l3.147-6.383c.409-.63.62-1.367.606-2.117a4.056 4.056 0 0 0-1.188-2.812zM7.925 2.5l.082.01.074-.01a3.075 3.075 0 0 1 2.941 3.037 2.74 2.74 0 0 1-.467 1.568l-.02.034-.017.035L8 12.279l-2.517-5.1-.017-.039-.02-.034a2.74 2.74 0 0 1-.467-1.568A3.074 3.074 0 0 1 7.924 2.5zm.612 2.169a1 1 0 1 0-1.112 1.663 1 1 0 0 0 1.112-1.663zM6.87 3.837a2 2 0 1 1 2.22 3.326 2 2 0 0 1-2.22-3.326z"/></svg> 
+          Our Locations
         </div>
         <div class="map-container">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.10264689874!2d101.60126607585939!3d3.0672320536489184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4c8f5d98b46d%3A0xed55e2cca5c2d394!2sSunway%20University!5e0!3m2!1sen!2smy!4v1753023650795!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1206,18 +1214,6 @@
         dot.classList.toggle('active', index === currentIndex);
       });
     }
-    
-    // Next button
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalCards;
-      updateCarousel();
-    });
-    
-    // Previous button
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-      updateCarousel();
-    });
     
     // Dot navigation
     dots.forEach(dot => {

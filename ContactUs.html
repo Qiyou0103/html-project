@@ -3,56 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Bookmycar Premium</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
+  <title>Contact Us | Bookmycar</title>
+
+<style>
     :root {
-      /* Color Variables */
-      --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-      --secondary-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-      --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-      --dark-bg: #0f172a;
-      --darker-bg: #0a0f1d;
-      --card-bg: rgba(255, 255, 255, 0.08);
-      --text-primary: #f1f5f9;
-      --text-secondary: #cbd5e1;
-      --border-color: rgba(255, 255, 255, 0.15);
+      /* Primary Colors */
+      --primary: #0e5c7d;
+      --secondary: #1e6c90;
+      --accent: #ff6b35;
+      --light: #f0f4f7;
+      --dark: #333;
+      --gray: #6c757d;
+      --card-bg: #ffffff;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.1);
       --success: #10b981;
       --error: #ef4444;
-      --focus: rgba(14, 165, 233, 0.2);
+
+      /* Spacing variables */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      --spacing-xxl: 4rem;
       
-      /* Typography Variables */
-      --font-sans: 'Segoe UI', system-ui, sans-serif;
-      --font-serif: Georgia, serif;
-      --text-base: 1rem;
-      --text-scale: 1.25;
+      /* Border radius */
+      --border-radius: 8px;
       
-      /* Calculated Type Scale */
-      --h1: clamp(2rem, 5vw, 3rem);
-      --h2: clamp(1.5rem, 4vw, 2.25rem);
-      --h3: clamp(1.25rem, 3.5vw, 1.75rem);
-      --h4: clamp(1rem, 3vw, 1.25rem);
-      --small: clamp(0.875rem, 2.5vw, 1rem);
-      
-      /* Spacing */
-      --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
-      --spacing-sm: clamp(0.5rem, 1.5vw, 1rem);
-      --spacing-md: clamp(1rem, 2.5vw, 1.5rem);
-      --spacing-lg: clamp(1.5rem, 4vw, 2.5rem);
-      --spacing-xl: clamp(2rem, 6vw, 4rem);
-      --spacing-xxl: clamp(4rem, 8vw, 8rem);
-      
-      /* Other */
-      --border-radius: clamp(8px, 2vw, 12px);
+      /* Transitions */
       --transition: all 0.3s ease;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     html {
@@ -60,228 +47,92 @@
     }
 
     body {
-      background: var(--dark-bg);
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 20%);
+      background-color: var(--light);
+      color: var(--dark);
+      position: relative;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      overflow-x: hidden;
     }
 
     /* Header Styles */
     header {
-      background: rgba(15, 23, 42, 0.95);
-      /* Vendor prefixes for backdrop-filter */
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      padding: var(--spacing-md) var(--spacing-lg);
+      background-color: var(--primary);
+      color: white;
+      padding: var(--spacing-sm) 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       position: sticky;
       top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
     }
 
     .logo {
-      font-size: var(--h3);
-      font-weight: 800;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
       display: flex;
       align-items: center;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-xs);
     }
 
     .logo i {
-      font-size: var(--h2);
+      color: var(--accent);
+      font-size: clamp(1.5rem, 3vw, 1.75rem);
     }
 
-    .nav-links {
+    header h1 {
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 700;
+    }
+
+    nav {
       display: flex;
-      gap: var(--spacing-lg);
+      gap: var(--spacing-xs);
     }
 
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
-      transition: var(--transition);
-      padding: var(--spacing-sm) 0;
-      font-size: var(--h4);
-    }
-
-    .nav-links a:hover {
-      color: var(--text-primary);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent-gradient);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a.active {
-      color: var(--text-primary);
-    }
-
-    .auth-buttons {
+    .main-nav {
       display: flex;
-      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
     }
 
-    .auth-buttons a {
-      padding: var(--spacing-sm) var(--spacing-md);
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-      font-size: var(--h4);
-    }
-
-    .auth-buttons a:first-child {
-      color: var(--text-primary);
-      border: 1px solid var(--border-color);
-    }
-
-    .auth-buttons a:first-child:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .auth-buttons a:last-child {
-      background: var(--secondary-gradient);
+    nav a {
       color: white;
-    }
-
-    .auth-buttons a:last-child:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: var(--h3);
-      cursor: pointer;
-    }
-
-    /* Mobile Menu */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 80%;
-      max-width: 320px;
-      height: 100vh;
-      background: var(--darker-bg);
-      z-index: 1000;
-      transition: var(--transition);
-      padding: var(--spacing-xl) var(--spacing-lg);
-      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background-color: var(--secondary);
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-weight: 500;
       display: flex;
-      flex-direction: column;
-      gap: var(--spacing-lg);
-      overflow-y: auto;
-    }
-
-    .mobile-menu.active {
-      right: 0;
-    }
-
-    .mobile-menu-header {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding-bottom: var(--spacing-md);
-      border-bottom: 1px solid var(--border-color);
+      gap: var(--spacing-xs);
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
     }
 
-    .mobile-menu-links {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
+    nav a:hover {
+      background-color: var(--accent);
+      transform: translateY(-2px);
     }
 
-    .mobile-menu-links a {
-      display: block;
-      padding: var(--spacing-sm) var(--spacing-md);
-      color: var(--text-primary);
-      text-decoration: none;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
+    nav a i {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
     }
 
-    .mobile-menu-links a:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .mobile-menu-links a.active {
-      background: rgba(14, 165, 233, 0.1);
-      color: #0ea5e9;
-    }
-
-    .mobile-auth-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      margin-top: auto;
-    }
-
-    .mobile-auth-buttons a {
-      display: block;
-      padding: var(--spacing-md);
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      text-align: center;
-      font-weight: 500;
-    }
-
-    .mobile-auth-buttons a:first-child {
-      background: transparent;
-      color: var(--text-primary);
-      border: 1px solid var(--border-color);
-    }
-
-    .mobile-auth-buttons a:last-child {
-      background: var(--secondary-gradient);
-      color: white;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 999;
+    /* Hamburger menu for mobile */
+    .hamburger {
       display: none;
-    }
-
-    .overlay.active {
-      display: block;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
     }
 
     /* Main Content */
@@ -289,13 +140,15 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      padding-bottom: var(--spacing-xl);
     }
 
     /* Contact Section */
     .contact-section {
-      padding: var(--spacing-xxl) var(--spacing-lg);
+      padding: var(--spacing-xl) 5%;
       display: flex;
       justify-content: center;
+      min-height: calc(100vh - 150px);
     }
 
     .contact-container {
@@ -310,21 +163,19 @@
       background: var(--card-bg);
       border-radius: var(--border-radius);
       padding: var(--spacing-xl);
-      border: 1px solid var(--border-color);
-      /* Vendor prefixes for backdrop-filter */
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
       gap: var(--spacing-xl);
-      box-shadow: var(--shadow);
     }
 
     .contact-info h2 {
-      font-size: var(--h2);
+      font-size: 1.75rem;
       margin-bottom: var(--spacing-md);
       position: relative;
       padding-bottom: var(--spacing-md);
+      color: var(--primary);
     }
 
     .contact-info h2::after {
@@ -334,7 +185,7 @@
       left: 0;
       width: 80px;
       height: 4px;
-      background: var(--accent-gradient);
+      background: var(--accent);
       border-radius: 2px;
     }
 
@@ -351,39 +202,48 @@
     }
 
     .contact-icon {
-      background: var(--accent-gradient);
+      background: var(--accent);
       width: clamp(40px, 6vw, 50px);
       height: clamp(40px, 6vw, 50px);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: var(--h3);
+      font-size: 1.25rem;
       flex-shrink: 0;
+      color: white;
     }
 
     .contact-details h3 {
-      font-size: var(--h3);
+      font-size: 1.25rem;
       margin-bottom: var(--spacing-xs);
+      color: var(--primary);
     }
 
     .contact-details p, 
     .contact-details a {
-      color: var(--text-secondary);
+      color: var(--gray);
       text-decoration: none;
       transition: var(--transition);
-      font-size: var(--h4);
+      font-size: 1rem;
     }
 
     .contact-details a:hover {
-      color: var(--text-primary);
+      color: var(--accent);
       text-decoration: underline;
     }
 
     .business-hours {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(240, 244, 247, 0.8);
       padding: var(--spacing-md);
       border-radius: var(--border-radius);
+      border: 1px solid var(--border);
+    }
+
+    .business-hours h3 {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-sm);
     }
 
     .hours-list {
@@ -397,8 +257,8 @@
       display: flex;
       justify-content: space-between;
       padding: var(--spacing-xs) 0;
-      border-bottom: 1px solid var(--border-color);
-      font-size: var(--small);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
     }
 
     .hours-list div:last-child {
@@ -409,14 +269,11 @@
       background: var(--card-bg);
       border-radius: var(--border-radius);
       padding: var(--spacing-xl);
-      border: 1px solid var(--border-color);
-      /* Vendor prefixes for backdrop-filter */
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: var(--spacing-lg);
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .form-header {
@@ -424,10 +281,11 @@
     }
 
     .form-header h2 {
-      font-size: var(--h2);
+      font-size: 1.75rem;
       margin-bottom: var(--spacing-sm);
       position: relative;
       padding-bottom: var(--spacing-sm);
+      color: var(--primary);
     }
 
     .form-header h2::after {
@@ -437,13 +295,13 @@
       left: 0;
       width: 80px;
       height: 4px;
-      background: var(--accent-gradient);
+      background: var(--accent);
       border-radius: 2px;
     }
 
     .form-header p {
-      color: var(--text-secondary);
-      font-size: var(--h4);
+      color: var(--gray);
+      font-size: 1rem;
     }
 
     .form-group {
@@ -455,35 +313,35 @@
       display: block;
       margin-bottom: var(--spacing-xs);
       font-weight: 500;
-      font-size: var(--h4);
+      font-size: 1rem;
+      color: var(--dark);
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
       padding: var(--spacing-md);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: var(--border-radius);
-      color: var(--text-primary);
-      font-family: var(--font-sans);
+      color: var(--dark);
       transition: var(--transition);
-      font-size: var(--h4);
+      font-size: 1rem;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
-      border-color: #0ea5e9;
-      box-shadow: 0 0 0 3px var(--focus);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
     }
 
     .form-group i {
       position: absolute;
       right: var(--spacing-md);
       top: 50%;
-      transform: translateY(50%);
-      color: var(--text-secondary);
+      transform: translateY(-50%);
+      color: var(--gray);
     }
 
     .form-row {
@@ -492,104 +350,9 @@
       gap: var(--spacing-md);
     }
 
-    /* Enhanced Custom Select Styles */
-    .custom-select {
-      position: relative;
-      width: 100%;
-    }
-    
-    .select-header {
-      padding: var(--spacing-md);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: var(--transition);
-      font-size: var(--h4);
-    }
-    
-    .select-header:hover {
-      border-color: #0ea5e9;
-    }
-    
-    .select-header.active {
-      border-color: #0ea5e9;
-      box-shadow: 0 0 0 3px var(--focus);
-    }
-    
-    .select-header i {
-      transition: transform 0.3s ease;
-    }
-    
-    .select-header.active i {
-      transform: rotate(180deg);
-    }
-    
-    .selected-option {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
-    
-    .selected-option i {
-      font-size: var(--h4);
-      width: 24px;
-      text-align: center;
-    }
-    
-    .select-options {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--darker-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
-      margin-top: var(--spacing-xs);
-      overflow: hidden;
-      z-index: 10;
-      max-height: 0;
-      opacity: 0;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
-    }
-    
-    .select-options.active {
-      max-height: 300px;
-      opacity: 1;
-      overflow-y: auto;
-    }
-    
-    .option {
-      padding: var(--spacing-md);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-      transition: var(--transition);
-      font-size: var(--h4);
-    }
-    
-    .option:hover {
-      background: rgba(14, 165, 233, 0.1);
-    }
-    
-    .option i {
-      font-size: var(--h4);
-      width: 24px;
-      text-align: center;
-    }
-    
-    .hidden-select {
-      display: none;
-    }
-
     .btn {
       display: inline-block;
-      background: var(--accent-gradient);
+      background: var(--accent);
       color: white;
       padding: var(--spacing-md) var(--spacing-xl);
       border-radius: var(--border-radius);
@@ -597,99 +360,118 @@
       border: none;
       cursor: pointer;
       transition: var(--transition);
-      font-family: var(--font-sans);
-      font-size: var(--h4);
+      font-size: 1rem;
       width: 100%;
       margin-top: var(--spacing-sm);
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .btn i {
-      margin-left: var(--spacing-xs);
+      box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+      background: #e65a2b;
     }
 
     /* Success Message */
     .success-message {
       background: rgba(16, 185, 129, 0.15);
       border: 1px solid var(--success);
-      color: var(--text-primary);
+      color: var(--dark);
       padding: var(--spacing-md);
       border-radius: var(--border-radius);
       margin-top: var(--spacing-md);
       display: none;
-      font-size: var(--h4);
+      font-size: 1rem;
     }
 
-    /* Map Section */
-    .map-section {
-      margin-top: var(--spacing-xl);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      height: clamp(300px, 40vh, 500px);
-    }
-
-    .map-section iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
+    .success-message i {
+      color: var(--success);
+      margin-right: var(--spacing-xs);
     }
 
     /* Footer */
     footer {
-      background: var(--darker-bg);
-      padding: var(--spacing-xl) var(--spacing-lg);
+      background: var(--primary);
+      color: white;
+      padding: var(--spacing-xl) 5%;
       text-align: center;
-      border-top: 1px solid var(--border-color);
     }
 
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+      text-align: left;
     }
 
     .footer-logo {
-      font-size: var(--h3);
-      font-weight: 800;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      font-size: 1.5rem;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: var(--spacing-sm);
       margin-bottom: var(--spacing-md);
+      color: white;
     }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-lg);
-      flex-wrap: wrap;
+    .footer-logo i {
+      color: var(--accent);
+    }
+
+    .footer-about p {
+      color: rgba(255, 255, 255, 0.8);
       margin-bottom: var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    .footer-links h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      padding-bottom: var(--spacing-xs);
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--spacing-xs);
     }
 
     .footer-links a {
-      color: var(--text-secondary);
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
       transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
     }
 
     .footer-links a:hover {
-      color: var(--text-primary);
+      color: var(--accent);
+    }
+
+    .footer-links a i {
+      width: 20px;
     }
 
     .social-icons {
       display: flex;
-      justify-content: center;
       gap: var(--spacing-md);
-      margin: var(--spacing-md) 0;
+      margin-top: var(--spacing-sm);
     }
 
     .social-icons a {
@@ -699,61 +481,90 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
       transition: var(--transition);
-      font-size: var(--h4);
+      font-size: 1.25rem;
     }
 
     .social-icons a:hover {
-      background: var(--accent-gradient);
+      background: var(--accent);
       transform: translateY(-3px);
     }
 
     .copyright {
-      color: var(--text-secondary);
-      font-size: var(--small);
-      margin-top: var(--spacing-md);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      margin-top: var(--spacing-xl);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      grid-column: 1 / -1;
     }
 
     /* Responsive Design */
     @media (max-width: 992px) {
-      .contact-container {
-        gap: var(--spacing-lg);
+      .hamburger {
+        display: flex;
       }
       
-      .form-row {
-        grid-template-columns: 1fr;
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        height: calc(100vh - 70px);
+        width: 70%;
+        max-width: 300px;
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--spacing-lg);
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        padding: var(--spacing-lg);
+        overflow-y: auto;
+      }
+      
+      .main-nav.active {
+        right: 0;
+      }
+      
+      .main-nav a {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-sm);
+      }
+
+      .contact-container {
+        gap: var(--spacing-lg);
       }
     }
 
     @media (max-width: 768px) {
-      .nav-links,
-      .auth-buttons {
-        display: none;
-      }
-      
-      .menu-toggle {
-        display: block;
-      }
-      
-      .contact-section {
-        padding: var(--spacing-lg) var(--spacing-md);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .contact-method {
-        flex-direction: column;
+      header {
+        flex-direction: row;
+        gap: var(--spacing-sm);
       }
       
       .hours-list {
         grid-template-columns: 1fr;
       }
       
-      .contact-info,
-      .contact-form {
-        padding: var(--spacing-lg);
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-method {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .contact-icon {
+        margin-bottom: var(--spacing-xs);
       }
     }
 
@@ -765,63 +576,36 @@
 
     .animate {
       animation: fadeIn 0.6s ease-out forwards;
-      opacity: 0;
     }
 
     .delay-1 {
-      animation-delay: 0.1s;
-    }
-
-    .delay-2 {
       animation-delay: 0.2s;
-    }
-
-    .delay-3 {
-      animation-delay: 0.3s;
     }
   </style>
 </head>
 <body>
+  <!-- Header with Navigation -->
   <header>
     <div class="logo">
-      <i class="fas fa-car"></i>
-      Bookmycar
+      <h1>Bookmycar</h1>
     </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="CarList.html">Explore</a>
-      <a href="car-rental.html">Deals</a>
-      
-      <a href="AboutUs.html">About Us</a>
-    </div>
-
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fas fa-bars"></i>
+    
+    <button class="hamburger" id="hamburger">
+       <svg width="25px" height="30px" viewBox="0 0 48 48"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M7.94977 11.9498H39.9498" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.94977 23.9498H39.9498" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.94977 35.9498H39.9498" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
+    
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html"><svg fill="#ffffff" width="25px" height="25px" viewBox="-2 -2 24 24"><path d='M18 18V7.132l-8-4.8-8 4.8V18h4v-2.75a4 4 0 1 1 8 0V18h4zm-6 2v-4.75a2 2 0 1 0-4 0V20H2a2 2 0 0 1-2-2V7.132a2 2 0 0 1 .971-1.715l8-4.8a2 2 0 0 1 2.058 0l8 4.8A2 2 0 0 1 20 7.132V18a2 2 0 0 1-2 2h-6z'/></svg>
+        Home</a>
+      <a href="CarList.html"><svg fill="#ffffff" width="18px" height="18px" viewBox="0 0 450 450"> <path style="stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;" d="M449.977,171.981c-0.359-6.783-5.064-11.273-10.509-10.028l-39.785,9.096c-4.115,0.941-7.471,4.892-8.709,9.694c-17.478-25.176-48.266-65.94-70.161-75.101c-3.031-1.246-21.897-7.461-95.814-7.461s-92.782,6.215-95.878,7.488c-21.849,9.141-52.623,49.898-70.097,75.073c-1.239-4.802-4.594-8.752-8.709-9.693l-39.785-9.096c-5.444-1.245-10.149,3.245-10.509,10.028c-0.362,6.784,3.76,13.292,9.202,14.537l35.292,8.069c-12.303,9.173-20.271,23.837-20.271,40.363l5.031,86.86c0,16.574,13.436,30.009,30.01,30.009h18.047c16.574,0,30.009-13.435,30.009-30.009l-0.589-6.358h236.492l-0.589,6.358c0,16.574,13.435,30.009,30.009,30.009h18.047c16.574,0,30.01-13.435,30.01-30.009l5.031-86.86c0-16.526-7.968-31.189-20.271-40.363l35.292-8.069C446.217,185.273,450.339,178.765,449.977,171.981z M137.419,126.198c1.735-0.564,19.909-5.877,87.581-5.877c67.535,0,85.772,5.292,87.57,5.874c13.097,5.69,35.568,32.828,54.033,58.438H83.394C101.881,158.991,124.376,131.822,137.419,126.198z M267.265,300.764h-84.531c-3.892,0-7.045-3.154-7.045-7.044c0-3.891,3.153-7.044,7.0457.044h84.531c3.892,0,7.045,3.154,7.045,7.044C274.31,297.61,271.157,300.764,267.265,300.764zM336.099,263.194c0,0-14.089-8.116-31.196-10.096H136.442c-17.107,1.98-31.196,10.096-31.196,10.096c-39.247,10.064-49.914-22.139-49.914-22.139h330.682C386.013,241.055,375.346,273.257,336.099,263.194z"/></svg>
+        Explore</a>
+      <a href="Form.html"><svg width="18px" height="18px" viewBox="0 0 15 15"> <path d="M0.5 7.5L0.146447 7.14645C-0.0488155 7.34171 -0.0488155 7.65829 0.146447 7.85355L0.5 7.5ZM7.5 14.5L7.14645 14.8536C7.34171 15.0488 7.65829 15.0488 7.85355 14.8536L7.5 14.5ZM14.5 7.5L14.8536 7.85355C14.9473 7.75979 15 7.63261 15 7.5H14.5ZM7.5 0.5V0C7.36739 0 7.24021 0.0526784 7.14645 0.146447L7.5 0.5ZM0.146447 7.85355L7.14645 14.8536L7.85355 14.1464L0.853553 7.14645L0.146447 7.85355ZM7.85355 14.8536L14.8536 7.85355L14.1464 7.14645L7.14645 14.1464L7.85355 14.8536ZM15 7.5V1.5H14V7.5H15ZM13.5 0H7.5V1H13.5V0ZM7.14645 0.146447L0.146447 7.14645L0.853553 7.85355L7.85355 0.853553L7.14645 0.146447ZM15 1.5C15 0.671573 14.3284 0 13.5 0V1C13.7761 1 14 1.22386 14 1.5H15ZM10.5 5C10.2239 5 10 4.77614 10 4.5H9C9 5.32843 9.67157 6 10.5 6V5ZM11 4.5C11 4.77614 10.7761 5 10.5 5V6C11.3284 6 12 5.32843 12 4.5H11ZM10.5 4C10.7761 4 11 4.22386 11 4.5H12C12 3.67157 11.3284 3 10.5 3V4ZM10.5 3C9.67157 3 9 3.67157 9 4.5H10C10 4.22386 10.2239 4 10.5 4V3Z" fill="#ffffff"/></svg>
+        Rentals</a>
+      <a href="AboutUs.html"><svg width="18px" height="18px" viewBox="0 0 16 16"> <path d="m 8 0 c -4.410156 0 -8 3.589844 -8 8 s 3.589844 8 8 8 s 8 -3.589844 8 -8 s -3.589844 -8 -8 -8 z m 0 2 c 3.332031 0 6 2.667969 6 6 s -2.667969 6 -6 6 s -6 -2.667969 -6 -6 s 2.667969 -6 6 -6 z m 0 1.875 c -0.621094 0 -1.125 1.125 -1.125 1.125 s 0.503906 1.125 1.125 1.125 s 1.125 -0.503906 1.125 -1.125 s -0.503906 -1.125 -1.125 -1.125 z m -1.523438 3.125 c -0.265624 0.011719 -0.476562 0.230469 -0.476562 0.5 c 0 0.277344 0.222656 0.5 0.5 0.5 h 0.5 v 3 h -0.5 c -0.277344 0 -0.5 0.222656 -0.5 0.5 s 0.222656 0.5 0.5 0.5 h 3 c 0.277344 0 0.5 -0.222656 0.5 -0.5 s -0.222656 -0.5 -0.5 -0.5 h -0.5 v -4 h -2.5 c -0.007812 0 -0.015625 0 -0.023438 0 z m 0 0" fill="#ffffff"/> </svg>
+        About Us</a>
+    </nav>
   </header>
-
-  <!-- Mobile Menu -->
-  <div class="overlay" id="overlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <div class="logo">
-        <i class="fas fa-car"></i>
-        Bookmycar
-      </div>
-      <button id="closeMenu">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <div class="mobile-menu-links">
-      <a href="index.html">Home</a>
-      <a href="homepage.html">Explore</a>
-      <a href="car-rental.html">Deals</a>
-      
-      <a href="AboutUs.html">About Us</a>
-    </div>
-
-  </div>
-
+  
   <main>
     <section id="contact" class="contact-section">
       <div class="contact-container">
@@ -830,31 +614,29 @@
           <div class="contact-methods">
             <div class="contact-method">
               <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
+                <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 16 16"  ><path  d="M10.832 2.688A4.056 4.056 0 0 0 8.02 1.5h-.04a4.056 4.056 0 0 0-4 4c-.013.75.198 1.487.606 2.117L7.734 14h.533l3.147-6.383c.409-.63.62-1.367.606-2.117a4.056 4.056 0 0 0-1.188-2.812zM7.925 2.5l.082.01.074-.01a3.075 3.075 0 0 1 2.941 3.037 2.74 2.74 0 0 1-.467 1.568l-.02.034-.017.035L8 12.279l-2.517-5.1-.017-.039-.02-.034a2.74 2.74 0 0 1-.467-1.568A3.074 3.074 0 0 1 7.924 2.5zm.612 2.169a1 1 0 1 0-1.112 1.663 1 1 0 0 0 1.112-1.663zM6.87 3.837a2 2 0 1 1 2.22 3.326 2 2 0 0 1-2.22-3.326z"/></svg> 
               </div>
               <div class="contact-details">
                 <h3>Our Location</h3>
-                <p>123 Auto Avenue, Downtown</p>
-                <p>Metropolis, MP 12345</p>
+                <p>5, Jalan Universiti, Bandar Sunway</p>
+                <p>47500 Petaling Jaya, Selangor</p>
               </div>
             </div>
             <div class="contact-method">
               <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
+                <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 24 24"><path d="M19.44,13c-.22,0-.45-.07-.67-.12a9.44,9.44,0,0,1-1.31-.39,2,2,0,0,0-2.48,1l-.22.45a12.18,12.18,0,0,1-2.66-2,12.18,12.18,0,0,1-2-2.66L10.52,9a2,2,0,0,0,1-2.48,10.33,10.33,0,0,1-.39-1.31c-.05-.22-.09-.45-.12-.68a3,3,0,0,0-3-2.49h-3a3,3,0,0,0-3,3.41A19,19,0,0,0,18.53,21.91l.38,0a3,3,0,0,0,2-.76,3,3,0,0,0,1-2.25v-3A3,3,0,0,0,19.44,13Zm.5,6a1,1,0,0,1-.34.75,1.05,1.05,0,0,1-.82.25A17,17,0,0,1,4.07,5.22a1.09,1.09,0,0,1,.25-.82,1,1,0,0,1,.75-.34h3a1,1,0,0,1,1,.79q.06.41.15.81a11.12,11.12,0,0,0,.46,1.55l-1.4.65a1,1,0,0,0-.49,1.33,14.49,14.49,0,0,0,7,7,1,1,0,0,0,.76,0,1,1,0,0,0,.57-.52l.62-1.4a13.69,13.69,0,0,0,1.58.46q.4.09.81.15a1,1,0,0,1,.79,1Z"/></svg>
               </div>
               <div class="contact-details">
                 <h3>Call Us</h3>
                 <p>+1 (800) CAR-RENT</p>
-                
               </div>
             </div>
             <div class="contact-method">
               <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
+                <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 24 24"><path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4ZM5,6H19a1,1,0,0,1,1,1l-8,4.88L4,7A1,1,0,0,1,5,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V9.28l7.48,4.57a1,1,0,0,0,1,0L20,9.28Z"/></svg>
               </div>
               <div class="contact-details">
                 <h3>Email Us</h3>
-                
                 <a href="mailto:support@bookmycar.com">support@bookmycar.com</a>
               </div>
             </div>
@@ -891,143 +673,106 @@
           <form id="contactForm">
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Full Name</label>
+                <label for="name">Full Name *</label>
                 <input type="text" id="name" placeholder="Your name" required>
-                <i class="fas fa-user"></i>
+
               </div>
               <div class="form-group">
-                <label for="email">Email Address</label>
+                <label for="email">Email Address *</label>
                 <input type="email" id="email" placeholder="Your email" required>
-                <i class="fas fa-envelope"></i>
+
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="phone">Phone Number</label>
+                <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" placeholder="Your phone number">
-                <i class="fas fa-phone"></i>
+
               </div>
-              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Message subject">
+
+              </div>
             </div>
             <div class="form-group">
-              <label for="message">Your Message</label>
+              <label for="message">Your Message *</label>
               <textarea id="message" rows="6" placeholder="How can we help you?" required></textarea>
             </div>
             <button type="submit" class="btn">
-              <i class="fas fa-paper-plane"></i> Send Message
+              <svg width="20px" height="20px" viewBox="0 0 25 25" fill="#ff6b35" ><path d="M22 2L2 8.66667L11.5833 12.4167M22 2L15.3333 22L11.5833 12.4167M22 2L11.5833 12.4167" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Send Message
             </button>
             <div class="success-message" id="successMessage">
-              <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+              <svg fill="#00FF00" width="30px" height="30px" viewBox="0 0 24 24"><path d="M16.972 6.251c-.967-.538-2.185-.188-2.72.777l-3.713 6.682-2.125-2.125c-.781-.781-2.047-.781-2.828 0-.781.781-.781 2.047 0 2.828l4 4c.378.379.888.587 1.414.587l.277-.02c.621-.087 1.166-.46 1.471-1.009l5-9c.537-.966.189-2.183-.776-2.72z"/></svg> 
+              Thank you! Your message has been sent successfully.
             </div>
           </form>
         </div>
       </div>
     </section>
-    
-    
   </main>
-  
-  
-  
+
+
   <script>
-    // Custom select functionality
-    const selectHeader = document.getElementById('selectHeader');
-    const selectOptions = document.getElementById('selectOptions');
-    const options = document.querySelectorAll('.option');
-    const subjectSelect = document.getElementById('subject');
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
     
-    // Toggle dropdown visibility
-    selectHeader.addEventListener('click', () => {
-      selectHeader.classList.toggle('active');
-      selectOptions.classList.toggle('active');
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('active');
+      hamburger.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
     });
     
-    // Handle option selection
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        // Update visual selection
-        const icon = option.querySelector('i').className;
-        const text = option.textContent.trim();
-        
-        selectHeader.querySelector('.selected-option i').className = icon;
-        selectHeader.querySelector('.selected-option span').textContent = text;
-        
-        // Update hidden select value
-        const value = option.getAttribute('data-value');
-        subjectSelect.value = value;
-        
-        // Close dropdown
-        selectHeader.classList.remove('active');
-        selectOptions.classList.remove('active');
-      });
-    });
-    
-    // Close dropdown when clicking outside
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
-        selectHeader.classList.remove('active');
-        selectOptions.classList.remove('active');
+      if (!mainNav.contains(e.target) && !hamburger.contains(e.target) && mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
     
-    // Form submission handling
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Show success message
-      document.getElementById('successMessage').style.display = 'block';
-      
-      // Reset form after 3 seconds
-      setTimeout(function() {
-        document.getElementById('contactForm').reset();
-        document.getElementById('successMessage').style.display = 'none';
-        
-        // Reset custom select
-        selectHeader.querySelector('.selected-option i').className = 'fas fa-question-circle';
-        selectHeader.querySelector('.selected-option span').textContent = 'Select a subject';
-      }, 3000);
-    });
-    
-    // Animation on scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const animatedElements = document.querySelectorAll('.animate');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      animatedElements.forEach(el => {
-        observer.observe(el);
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
     
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    const closeMenu = document.getElementById('closeMenu');
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
     
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.add('active');
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show success message
+      successMessage.style.display = 'block';
+      
+      // Reset form after submission
+      setTimeout(() => {
+        contactForm.reset();
+        successMessage.style.display = 'none';
+      }, 5000);
     });
     
-    closeMenu.addEventListener('click', function() {
-      mobileMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    });
-    
-    overlay.addEventListener('click', function() {
-      mobileMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
+    // Trigger animations on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.animate');
+      animateElements.forEach(el => {
+        el.style.opacity = '0';
+      });
+      
+      setTimeout(() => {
+        animateElements.forEach(el => {
+          el.style.animationPlayState = 'running';
+        });
+      }, 100);
     });
   </script>
 </body>
